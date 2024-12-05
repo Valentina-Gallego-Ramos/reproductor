@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Música</title>
+    <script>
+        class ReproductorMusica {
+            constructor(canciones) {
+                this.canciones = canciones;
+                this.indiceActual = 0;
+                this.reproduciendo = false;
+            }
+
+            devolverCancion() {
+                if (this.canciones.length > 0) {
+                    console.log("Canción actual: " + this.canciones[this.indiceActual]);
+                }
+            }
+
+            agregarCancionesFavoritas() {
+                console.log("Canción agregada a favoritas: " + this.canciones[this.indiceActual]);
+            }
+
+            proximaCancion() {
+                if (this.indiceActual < this.canciones.length - 1) {
+                    this.indiceActual++;
+                    console.log("Próxima canción: " + this.canciones[this.indiceActual]);
+                } else {
+                    console.log("No hay más canciones.");
+                }
+            }
+
+            cambiarEstadoReproduccion() {
+                this.reproduciendo = !this.reproduciendo;
+                if (this.reproduciendo) {
+                    console.log("Reproduciendo: " + this.canciones[this.indiceActual]);
+                } else {
+                    console.log("Pausado: " + this.canciones[this.indiceActual]);
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const cancionesEscogidas = ["Hola", "yes", "no se", "hello", "yo", "java", "soft"];
+            const Ventana1 = new ReproductorMusica(cancionesEscogidas);
+
+            Ventana1.devolverCancion();
+            Ventana1.devolverCancion();
+            Ventana1.devolverCancion();
+            Ventana1.devolverCancion();
+
+            Ventana1.agregarCancionesFavoritas();
+            Ventana1.proximaCancion();
+            Ventana1.agregarCancionesFavoritas();
+            Ventana1.proximaCancion();
+            Ventana1.agregarCancionesFavoritas();
+
+            Ventana1.cambiarEstadoReproduccion();
+            Ventana1.cambiarEstadoReproduccion();
+            Ventana1.cambiarEstadoReproduccion();
+            Ventana1.cambiarEstadoReproduccion();
+        });
+    </script>
+</head>
+<body>
+    <h1>Reproductor de Música</h1>
+    <p>Abre la consola del navegador para ver los mensajes.</p>
+</body>
+</html>
